@@ -1,14 +1,20 @@
-public class Spot {
+import javax.swing.JButton;
+
+public class Spot extends JButton {
 
     private String symbol;
     private boolean isAvailable;
 
     public Spot() {
+        super("");
+
         this.symbol = "";
         this.isAvailable = true;
     }
 
     public Spot(String symbol) {
+        super(symbol);
+
         this.symbol = symbol;
         this.isAvailable = true;
     }
