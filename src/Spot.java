@@ -1,6 +1,8 @@
 import javax.swing.JButton;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Spot extends JButton {
+public class Spot extends JButton{
 
     private String symbol;
     private boolean isAvailable;
@@ -20,12 +22,13 @@ public class Spot extends JButton {
     }
 
     void mark(Player player) {
-        this.symbol = player.getSymbol();
+        setSymbol(player.getSymbol());
         this.isAvailable = false;
     }
 
-    void setSymbol(String symbol) { this.symbol = symbol; }
+    void setSymbol(String symbol) { this.symbol = symbol; setText(symbol); }
 
     String getSymbol() { return this.symbol; }
     boolean getAvailable() { return this.isAvailable; }
+
 }
