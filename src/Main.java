@@ -21,6 +21,7 @@ public class Main extends JFrame{
         panel.setLayout(new GridLayout(3,3));
         for (int i = 0; i < 9; ++i) {
             panel.add(board.getBoard().get(i));
+            board.getBoard().get(i).addActionListener(new spotClicked());
         }
 
         add(panel);
@@ -38,7 +39,13 @@ public class Main extends JFrame{
     public class spotClicked implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
-            //board.getPlayerTurn();
+            Object source = e.getSource();
+            if (source instanceof Spot) {
+                Spot spot = (Spot) source;
+                spot.mark(board.getPlayerTurn());
+            } else {
+                System.out.println("Error: Object was not a Spot.");
+            }
         }
     }
 }
