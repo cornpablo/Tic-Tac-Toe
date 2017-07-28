@@ -32,7 +32,7 @@ public class Main extends JFrame{
 
         Main f = new Main("Tic Tac Toe", board);
 
-        board.markSpot(player_1, 0);
+
     }
 
 
@@ -42,7 +42,17 @@ public class Main extends JFrame{
             Object source = e.getSource();
             if (source instanceof Spot) {
                 Spot spot = (Spot) source;
-                spot.mark(board.getPlayerTurn());
+                if (spot.getAvailable()) {
+                    spot.mark(board.getPlayerTurn());
+
+                    if (player_1 == board.getPlayerTurn()) {
+                        board.changeTurn(player_2);
+                    } else {
+                        board.changeTurn(player_1);
+                    }
+                } else {
+                    System.out.println("Spot has already been used!");
+                }
             } else {
                 System.out.println("Error: Object was not a Spot.");
             }

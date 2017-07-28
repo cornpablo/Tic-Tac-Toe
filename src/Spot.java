@@ -22,8 +22,8 @@ public class Spot extends JButton{
     }
 
     void mark(Player player) {
-        setSymbol(player.getSymbol());
-        this.isAvailable = false;
+            setSymbol(player.getSymbol());
+            this.isAvailable = false;
     }
 
     void setSymbol(String symbol) { this.symbol = symbol; setText(symbol); }
