@@ -27,6 +27,7 @@ public class Spot extends JButton{
     }
 
     void setSymbol(String symbol) { this.symbol = symbol; setText(symbol); }
+    void resetSpot() { setSymbol(""); this.isAvailable = true; }
 
     String getSymbol() { return this.symbol; }
     boolean getAvailable() { return this.isAvailable; }
